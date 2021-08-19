@@ -13,7 +13,7 @@
         android:layout_height="@dimen/posts_avatar_size"
         android:layout_marginBottom="@dimen/common_spacing"
         android:contentDescription="@string/description_post_author_avatar"
-        app:layout_constraintBottom_toBottomOf="@id/barrier_top"
+        app:layout_constraintBottom_toBottomOf="@id/barrier"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@sample/posts.json/data/authorAvatar" />
@@ -40,7 +40,7 @@
         android:layout_marginStart="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/common_spacing"
         android:layout_marginBottom="@dimen/common_spacing"
-        app:layout_constraintBottom_toBottomOf="@id/barrier_top"
+        app:layout_constraintBottom_toBottomOf="@id/barrier"
         app:layout_constraintEnd_toStartOf="@id/ic_menu"
         app:layout_constraintStart_toEndOf="@id/iv_avatar"
         app:layout_constraintTop_toBottomOf="@id/tv_author"
@@ -58,7 +58,7 @@
         app:srcCompat="@drawable/ic_more_vert_24" />
 
     <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_top"
+        android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
@@ -73,7 +73,7 @@
         android:autoLink="web"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier_top"
+        app:layout_constraintTop_toBottomOf="@id/barrier"
         tools:text="@sample/posts.json/data/content" />
 
     <ImageView
