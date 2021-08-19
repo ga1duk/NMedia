@@ -86,5 +86,25 @@
         app:constraint_referenced_ids="content"
         />
 
+    <ImageView
+        android:id="@+id/ic_likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:contentDescription="@string/description_post_likes"
+        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+
+    <TextView
+        android:id="@+id/tv_likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_spacing"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:layout_marginTop="@dimen/common_spacing"
+        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
+        app:layout_constraintStart_toEndOf="@id/ic_likes"
+        tools:text="@sample/posts.json/data/likes" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
