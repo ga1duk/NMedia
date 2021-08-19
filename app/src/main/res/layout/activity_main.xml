@@ -13,9 +13,9 @@
         android:layout_height="@dimen/posts_avatar_size"
         android:layout_marginBottom="@dimen/common_spacing"
         android:contentDescription="@string/description_post_author_avatar"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/barrier_top"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@sample/posts.json/data/authorAvatar" />
 
     <TextView
@@ -26,10 +26,10 @@
         android:layout_marginEnd="@dimen/common_spacing"
         android:ellipsize="end"
         android:singleLine="true"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tv_published"
         app:layout_constraintEnd_toStartOf="@id/ic_menu"
         app:layout_constraintStart_toEndOf="@id/iv_avatar"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="@sample/posts.json/data/author" />
 
@@ -40,10 +40,10 @@
         android:layout_marginStart="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/common_spacing"
         android:layout_marginBottom="@dimen/common_spacing"
-        app:layout_constraintTop_toBottomOf="@id/tv_author"
         app:layout_constraintBottom_toBottomOf="@id/barrier_top"
         app:layout_constraintEnd_toStartOf="@id/ic_menu"
         app:layout_constraintStart_toEndOf="@id/iv_avatar"
+        app:layout_constraintTop_toBottomOf="@id/tv_author"
         tools:text="@sample/posts.json/data/published" />
 
     <ImageButton
@@ -62,8 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="iv_avatar,tv_published,ic_menu"
-        />
+        app:constraint_referenced_ids="iv_avatar,tv_published,ic_menu" />
 
     <TextView
         android:id="@+id/tv_content"
@@ -72,10 +71,10 @@
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginBottom="@dimen/common_spacing"
         android:autoLink="web"
+        app:layout_constraintBottom_toTopOf="@id/barrier_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrier_top"
-        app:layout_constraintBottom_toTopOf="@id/barrier_bottom"
         tools:text="@sample/posts.json/data/content" />
 
     <androidx.constraintlayout.widget.Barrier
@@ -83,8 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="tv_content"
-        />
+        app:constraint_referenced_ids="tv_content" />
 
     <ImageView
         android:id="@+id/ic_likes"
@@ -92,8 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
         android:contentDescription="@string/description_post_likes"
-        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
         app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
 
     <TextView
@@ -101,21 +99,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/small_spacing"
-        android:layout_marginEnd="@dimen/common_spacing"
         android:layout_marginTop="@dimen/common_spacing"
-        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
+        android:layout_marginEnd="@dimen/common_spacing"
         app:layout_constraintStart_toEndOf="@id/ic_likes"
+        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
         tools:text="@sample/posts.json/data/likes" />
 
     <ImageView
         android:id="@+id/ic_shares"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="@dimen/common_spacing"
         android:contentDescription="@string/description_post_shares"
-        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
         app:layout_constraintStart_toEndOf="@id/tv_likes"
+        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
         app:srcCompat="@drawable/ic_baseline_share_24" />
 
     <TextView
@@ -123,22 +121,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/small_spacing"
-        android:layout_marginEnd="@dimen/common_spacing"
         android:layout_marginTop="@dimen/common_spacing"
-        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
+        android:layout_marginEnd="@dimen/common_spacing"
         app:layout_constraintStart_toEndOf="@id/ic_shares"
+        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
         tools:text="@sample/posts.json/data/shares" />
 
     <ImageView
         android:id="@+id/ic_views"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/small_spacing"
         android:contentDescription="@string/description_post_views"
-        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
         app:layout_constraintEnd_toStartOf="@id/tv_views"
+        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
         app:srcCompat="@drawable/ic_baseline_visibility_24" />
 
     <TextView
@@ -146,8 +144,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
-        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
         tools:text="@sample/posts.json/data/views" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
