@@ -106,5 +106,27 @@
         app:layout_constraintTop_toTopOf="@id/barrier_bottom"
         app:layout_constraintStart_toEndOf="@id/ic_likes"
         tools:text="@sample/posts.json/data/likes" />
+
+    <ImageView
+        android:id="@+id/ic_shares"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:contentDescription="@string/description_post_shares"
+        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
+        app:layout_constraintStart_toEndOf="@id/tv_likes"
+        app:srcCompat="@drawable/ic_baseline_share_24" />
+
+    <TextView
+        android:id="@+id/tv_shares"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_spacing"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:layout_marginTop="@dimen/common_spacing"
+        app:layout_constraintTop_toTopOf="@id/barrier_bottom"
+        app:layout_constraintStart_toEndOf="@id/ic_shares"
+        tools:text="@sample/posts.json/data/shares" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
