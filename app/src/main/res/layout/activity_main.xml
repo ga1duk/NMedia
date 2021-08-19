@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/avatar"
+        android:id="@+id/iv_avatar"
         android:layout_width="@dimen/posts_avatar_size"
         android:layout_height="@dimen/posts_avatar_size"
         android:layout_marginBottom="@dimen/common_spacing"
@@ -19,7 +19,7 @@
         tools:srcCompat="@sample/posts.json/data/authorAvatar" />
 
     <TextView
-        android:id="@+id/author"
+        android:id="@+id/tv_author"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
@@ -27,27 +27,27 @@
         android:ellipsize="end"
         android:singleLine="true"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/published"
-        app:layout_constraintEnd_toStartOf="@id/menu"
-        app:layout_constraintStart_toEndOf="@id/avatar"
+        app:layout_constraintBottom_toTopOf="@+id/tv_published"
+        app:layout_constraintEnd_toStartOf="@id/ic_menu"
+        app:layout_constraintStart_toEndOf="@id/iv_avatar"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="@sample/posts.json/data/author" />
 
     <TextView
-        android:id="@+id/published"
+        android:id="@+id/tv_published"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/common_spacing"
         android:layout_marginBottom="@dimen/common_spacing"
-        app:layout_constraintTop_toBottomOf="@id/author"
+        app:layout_constraintTop_toBottomOf="@id/tv_author"
         app:layout_constraintBottom_toBottomOf="@id/barrier_top"
-        app:layout_constraintEnd_toStartOf="@id/menu"
-        app:layout_constraintStart_toEndOf="@id/avatar"
+        app:layout_constraintEnd_toStartOf="@id/ic_menu"
+        app:layout_constraintStart_toEndOf="@id/iv_avatar"
         tools:text="@sample/posts.json/data/published" />
 
     <ImageButton
-        android:id="@+id/menu"
+        android:id="@+id/ic_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/common_spacing"
@@ -62,11 +62,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="avatar,published,menu"
+        app:constraint_referenced_ids="iv_avatar,tv_published,ic_menu"
         />
 
     <TextView
-        android:id="@+id/content"
+        android:id="@+id/tv_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
@@ -83,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="content"
+        app:constraint_referenced_ids="tv_content"
         />
 
     <ImageView
