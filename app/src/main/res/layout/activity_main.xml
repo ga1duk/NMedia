@@ -77,7 +77,7 @@
         tools:text="@sample/posts.json/data/content" />
 
     <ImageView
-        android:id="@+id/ic_likes"
+        android:id="@+id/iv_likes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
@@ -93,12 +93,12 @@
         android:layout_marginStart="@dimen/small_spacing"
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/common_spacing"
-        app:layout_constraintStart_toEndOf="@id/ic_likes"
+        app:layout_constraintStart_toEndOf="@id/iv_likes"
         app:layout_constraintTop_toBottomOf="@id/tv_content"
         tools:text="@sample/posts.json/data/likes" />
 
     <ImageView
-        android:id="@+id/ic_shares"
+        android:id="@+id/iv_shares"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
@@ -115,12 +115,12 @@
         android:layout_marginStart="@dimen/small_spacing"
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/common_spacing"
-        app:layout_constraintStart_toEndOf="@id/ic_shares"
+        app:layout_constraintStart_toEndOf="@id/iv_shares"
         app:layout_constraintTop_toBottomOf="@id/tv_content"
         tools:text="@sample/posts.json/data/shares" />
 
     <ImageView
-        android:id="@+id/ic_views"
+        android:id="@+id/iv_views"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
