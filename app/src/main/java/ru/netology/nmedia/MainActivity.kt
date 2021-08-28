@@ -3,8 +3,6 @@ package ru.netology.nmedia
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ru.netology.nmedia.databinding.ActivityMainBinding
-import java.math.RoundingMode
-import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,18 +42,6 @@ class MainActivity : AppCompatActivity() {
             post.sharesCount ++
             binding.tvShares.text = convertNumber(post.sharesCount)
         }
-    }
-
-    private fun convertNumber(number: Int): String? {
-        val df = DecimalFormat("#.#")
-        df.roundingMode = RoundingMode.DOWN
-        when {
-            number < 1000 -> return number.toString()
-            number in 1000..9999 -> return "${df.format(number.toDouble() / 1000)}K"
-            number in 10_000..999_999 -> return "${number / 1000}K"
-            number >= 1_000_000 -> return "${df.format(number.toDouble() / 1_000_000)}M"
-        }
-        return null
     }
 }
 
