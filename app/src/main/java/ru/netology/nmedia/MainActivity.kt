@@ -3,6 +3,8 @@ package ru.netology.nmedia
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ru.netology.nmedia.databinding.ActivityMainBinding
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +22,8 @@ class MainActivity : AppCompatActivity() {
         binding.tvAuthor.text = post.author
         binding.tvPublished.text = post.published
         binding.tvContent.text = post.content
-        binding.tvLikes.text = post.likesCount.toString()
-        binding.tvShares.text = post.sharesCount.toString()
+        binding.tvLikes.text = convertNumber(post.likesCount)
+        binding.tvShares.text = convertNumber(post.sharesCount)
         if (post.likedByMe) {
             binding.ivLikes.setImageResource(R.drawable.ic_baseline_favorite_24)
         }
@@ -30,18 +32,30 @@ class MainActivity : AppCompatActivity() {
             if (!post.likedByMe) {
                 binding.ivLikes.setImageResource(R.drawable.ic_baseline_favorite_24)
                 post.likesCount++
-                binding.tvLikes.text = post.likesCount.toString()
             } else {
                 binding.ivLikes.setImageResource(R.drawable.ic_baseline_favorite_border_24)
                 post.likesCount--
-                binding.tvLikes.text = post.likesCount.toString()
             }
+            binding.tvLikes.text = convertNumber(post.likesCount)
             post.likedByMe = !post.likedByMe
         }
 
         binding.ivShares.setOnClickListener {
-            post.sharesCount++
-            binding.tvShares.text = post.sharesCount.toString()
+            post.sharesCount ++
+            binding.tvShares.text = convertNumber(post.sharesCount)
         }
     }
+
+    private fun convertNumber(number: Int): String? {
+        val df = DecimalFormat("#.#")
+        df.roundingMode = RoundingMode.DOWN
+        when {
+            number < 1000 -> return number.toString()
+            number in 1000..9999 -> return "${df.format(number.toDouble() / 1000)}K"
+            number in 10_000..999_999 -> return "${number / 1000}K"
+            number >= 1_000_000 -> return "${df.format(number.toDouble() / 1_000_000)}M"
+        }
+        return null
+    }
 }
+
