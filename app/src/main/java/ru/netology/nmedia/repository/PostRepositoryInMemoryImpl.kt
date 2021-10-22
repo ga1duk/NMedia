@@ -76,22 +76,19 @@ class PostRepositoryInMemoryImpl : PostRepository {
     override fun getAll(): LiveData<List<Post>> = data
     override fun likeById(id: Long) {
         posts = posts.map {
-            if (it.id != id) it else it.copy(likedByMe = !it.likedByMe)
+            if (it.id != id) it else it.copy(
+                likedByMe = !it.likedByMe,
+                likesCount = if (!it.likedByMe) it.likesCount + 1 else it.likesCount - 1
+            )
         }
-//        posts = posts.map {
-//            it.likesCount = if (!it.likedByMe) it.likesCount + 1 else it.likesCount - 1
-//        }
-//        posts = posts.map(
-//            likedByMe = !post.likedByMe,
-//            likesCount = if (!post.likedByMe) post.likesCount + 1 else post.likesCount - 1
-//        )
-
 //        изменяем объект data с помощью функции value
         data.value = posts
     }
 
-//    override fun share() {
-//        post = post.copy(sharesCount = post.sharesCount + 1)
-//        data.value = post
-//    }
+    override fun shareById(id: Long) {
+        posts = posts.map {
+            if(it.id != id) it else it.copy(sharesCount = it.sharesCount + 1)
+        }
+        data.value = posts
+    }
 }
