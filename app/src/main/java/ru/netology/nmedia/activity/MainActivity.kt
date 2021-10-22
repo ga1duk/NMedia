@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         binding.list.adapter = adapter
 //        Подписываемся на обновление data во viewModel
         viewModel.data.observe(this) { posts ->
-            adapter.list = posts
+            adapter.submitList(posts)
         }
     }
 }
