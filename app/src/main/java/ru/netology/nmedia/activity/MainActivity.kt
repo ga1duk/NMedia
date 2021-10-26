@@ -3,8 +3,7 @@ package ru.netology.nmedia.activity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import ru.netology.nmedia.R
-import ru.netology.nmedia.convertNumber
+import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.viewmodel.PostViewModel
 
@@ -16,27 +15,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewModel: PostViewModel by viewModels()
+        val adapter = PostsAdapter({
+            viewModel.likeById(it.id)
+        }, {
+            viewModel.shareById(it.id)
+        }
+        )
+
+        binding.list.adapter = adapter
 //        Подписываемся на обновление data во viewModel
-        viewModel.data.observe(this) { post ->
-            with(binding) {
-                tvAuthor.text = post.author
-                tvPublished.text = post.published
-                tvContent.text = post.content
-                tvLikes.text = convertNumber(post.likesCount)
-                tvShares.text = convertNumber(post.sharesCount)
-                ivLikes.setImageResource(
-                    if (post.likedByMe) R.drawable.ic_baseline_favorite_24
-                    else R.drawable.ic_baseline_favorite_border_24
-                )
-            }
-        }
-
-        binding.ivLikes.setOnClickListener {
-            viewModel.like()
-        }
-
-        binding.ivShares.setOnClickListener {
-            viewModel.share()
+        viewModel.data.observe(this) { posts ->
+            adapter.submitList(posts)
         }
     }
 }
