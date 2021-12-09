@@ -1,6 +1,9 @@
 package ru.netology.nmedia.activity
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +20,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.buttonGroup.visibility = View.GONE
+
+        with(binding) {
+            content.addTextChangedListener(object : TextWatcher {
+                override fun afterTextChanged(s: Editable?) {
+                }
+
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                }
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    if (content.text.toString().isNotEmpty()) {
+                        buttonGroup.visibility = View.VISIBLE
+                    } else {
+                        buttonGroup.visibility = View.GONE
+                        binding.root.requestFocus()
+                    }
+                }
+            })
+        }
 
         val viewModel: PostViewModel by viewModels()
         val adapter = PostsAdapter(object : OnInteractionListener {
@@ -54,7 +83,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.save.setOnClickListener {
+        binding.btnCancel.setOnClickListener {
+            with(binding.content) {
+                setText("")
+                clearFocus()
+                AndroidUtils.hideKeyboard(this)
+                binding.buttonGroup.visibility = View.GONE
+            }
+            return@setOnClickListener
+        }
+
+        binding.btnSave.setOnClickListener {
             with(binding.content) {
                 if (text.isNullOrBlank()) {
                     Toast.makeText(
@@ -71,6 +110,7 @@ class MainActivity : AppCompatActivity() {
                 setText("")
                 clearFocus()
                 AndroidUtils.hideKeyboard(this)
+                binding.buttonGroup.visibility = View.GONE
             }
         }
     }
