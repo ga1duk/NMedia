@@ -1,6 +1,5 @@
 package ru.netology.nmedia.viewmodel
 
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ru.netology.nmedia.dto.Post
@@ -33,7 +32,7 @@ class PostViewModel : ViewModel() {
 
     fun changeContent(content: String) {
         val text = content.trim()
-        if(edited.value?.content == text) {
+        if (edited.value?.content == text) {
             return
         }
         edited.value = edited.value?.copy(content = text)
