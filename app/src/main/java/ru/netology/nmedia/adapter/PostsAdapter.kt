@@ -40,12 +40,11 @@ class PostViewHolder(
             tvAuthor.text = post.author
             tvPublished.text = post.published
             tvContent.text = post.content
-            tvShares.text = convertNumber(post.sharesCount)
+            btnLike.isChecked = post.likedByMe
+            btnLike.text = convertNumber(post.likesCount)
+            btnShare.text = convertNumber(post.sharesCount)
 
-            btnLikes.isChecked = post.likedByMe
-            btnLikes.text = convertNumber(post.likesCount)
-
-            icMenu.setOnClickListener {
+            btnMenu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.options_post)
                     setOnMenuItemClickListener { item ->
@@ -63,10 +62,10 @@ class PostViewHolder(
                     }
                 }.show()
             }
-            btnLikes.setOnClickListener {
+            btnLike.setOnClickListener {
                 onInteractionListener.onLike(post)
             }
-            ivShares.setOnClickListener {
+            btnShare.setOnClickListener {
                 onInteractionListener.onShare(post)
             }
         }
