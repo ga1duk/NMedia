@@ -54,7 +54,7 @@
         android:contentDescription="@string/description_post_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_more_vert_24" />
+        app:srcCompat="@drawable/ic_popup_menu_24" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"
@@ -75,25 +75,17 @@
         app:layout_constraintTop_toBottomOf="@id/barrier"
         tools:text="@sample/posts.json/data/content" />
 
-    <ImageView
-        android:id="@+id/iv_likes"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_likes"
+        style="@style/Widget.AppTheme.LikeCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_spacing"
+        android:checkable="true"
         android:contentDescription="@string/description_post_likes"
+        app:icon="@drawable/ic_like_24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_content"
-        app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
-
-    <TextView
-        android:id="@+id/tv_likes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/small_spacing"
-        android:layout_marginTop="@dimen/common_spacing"
-        android:layout_marginEnd="@dimen/common_spacing"
-        app:layout_constraintStart_toEndOf="@id/iv_likes"
-        app:layout_constraintTop_toBottomOf="@id/tv_content"
+        tools:checked="@sample/posts.json/data/likedByMe"
         tools:text="@sample/posts.json/data/likes" />
 
     <ImageView
@@ -103,9 +95,9 @@
         android:layout_marginStart="@dimen/common_spacing"
         android:layout_marginTop="@dimen/common_spacing"
         android:contentDescription="@string/description_post_shares"
-        app:layout_constraintStart_toEndOf="@id/tv_likes"
+        app:layout_constraintStart_toEndOf="@id/btn_likes"
         app:layout_constraintTop_toBottomOf="@id/tv_content"
-        app:srcCompat="@drawable/ic_baseline_share_24" />
+        app:srcCompat="@drawable/ic_share_24" />
 
     <TextView
         android:id="@+id/tv_shares"
@@ -128,7 +120,7 @@
         android:contentDescription="@string/description_post_views"
         app:layout_constraintEnd_toStartOf="@id/tv_views"
         app:layout_constraintTop_toBottomOf="@id/tv_content"
-        app:srcCompat="@drawable/ic_baseline_visibility_24" />
+        app:srcCompat="@drawable/ic_views_24" />
 
     <TextView
         android:id="@+id/tv_views"
