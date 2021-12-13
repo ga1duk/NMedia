@@ -13,4 +13,6 @@
     <string name="content_is_empty_toast">Контент не может быть пустым</string>
     <string name="description_post_save">Сохранить</string>
     <string name="description_post_cancel">Отменить</string>
+    <string name="chooser_share_post">Поделиться постом</string>
+    <string name="description_post_add">Добавить пост</string>
 </resources>
