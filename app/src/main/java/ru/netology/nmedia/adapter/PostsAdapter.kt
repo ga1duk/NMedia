@@ -1,20 +1,24 @@
 package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
 import ru.netology.nmedia.convertNumber
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
+import ru.netology.nmedia.util.Extensions.setGroupOnClickListener
 
 interface OnInteractionListener {
     fun onLike(post: Post) {}
     fun onShare(post: Post) {}
     fun onRemove(post: Post) {}
     fun onEdit(post: Post) {}
+    fun onVideoPlay(post: Post) {}
 }
 
 class PostsAdapter(
@@ -43,6 +47,7 @@ class PostViewHolder(
             btnLike.isChecked = post.likedByMe
             btnLike.text = convertNumber(post.likesCount)
             btnShare.text = convertNumber(post.sharesCount)
+            groupVideo.isVisible = !post.video.isNullOrBlank()
 
             btnMenu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
@@ -68,6 +73,9 @@ class PostViewHolder(
             btnShare.setOnClickListener {
                 onInteractionListener.onShare(post)
             }
+            groupVideo.setGroupOnClickListener(View.OnClickListener {
+                onInteractionListener.onVideoPlay(post)
+            })
         }
     }
 }
