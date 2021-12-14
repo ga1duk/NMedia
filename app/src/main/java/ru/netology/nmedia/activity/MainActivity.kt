@@ -1,8 +1,8 @@
 package ru.netology.nmedia.activity
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.activity.result.launch
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import ru.netology.nmedia.R
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.fabAdd.setOnClickListener {
-            newPostLauncher.launch()
+            newPostLauncher.launch("")
         }
 
         val adapter = PostsAdapter(object : OnInteractionListener {
@@ -55,7 +55,13 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onEdit(post: Post) {
+                newPostLauncher.launch(post.content)
                 viewModel.edit(post)
+            }
+
+            override fun onVideoPlay(post: Post) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(post.video))
+                startActivity(intent)
             }
         })
 

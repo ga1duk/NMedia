@@ -76,6 +76,34 @@
         app:layout_constraintTop_toBottomOf="@id/header"
         tools:text="@sample/posts.json/data/content" />
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="iv_video,btn_play" />
+
+    <ImageView
+        android:id="@+id/iv_video"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_view_video_height"
+        android:src="@drawable/iv_memory"
+        app:layout_constraintBottom_toTopOf="@id/footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_content" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_play"
+        style="@style/Widget.AppTheme.IconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_play_48dp"
+        android:contentDescription="@string/description_post_video_play"
+        app:layout_constraintBottom_toTopOf="@id/iv_video"
+        app:layout_constraintEnd_toEndOf="@id/iv_video"
+        app:layout_constraintStart_toStartOf="@id/iv_video"
+        app:layout_constraintTop_toBottomOf="@id/iv_video" />
+
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/footer"
         android:layout_width="wrap_content"
@@ -108,8 +136,7 @@
         app:icon="@drawable/ic_share_24"
         app:layout_constraintStart_toEndOf="@+id/btn_like"
         app:layout_constraintTop_toBottomOf="@id/footer"
-        tools:text="@sample/posts.json/data/shares"
-        />
+        tools:text="@sample/posts.json/data/shares" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_view"

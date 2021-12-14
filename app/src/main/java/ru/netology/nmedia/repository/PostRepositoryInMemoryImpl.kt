@@ -60,6 +60,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
             id = nextId++,
             author = "Нетология. Университет интернет-профессий будущего",
             content = "Делиться впечатлениями о любимых фильмах легко, а что если рассказать так, чтобы все заскучали \uD83D\uDE34\n",
+            video = "https://yandex.ru/video/preview/?filmId=5742904858483919323&source=main_redirect&text=видео&utm_source=main_stripe_big",
             published = "22 сентября в 10:14",
             likedByMe = false
         ),
@@ -67,6 +68,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
             id = nextId++,
             author = "Нетология. Университет интернет-профессий будущего",
             content = "Освоение новой профессии — это не только открывающиеся возможности и перспективы, но и настоящий вызов самому себе. Приходится выходить из зоны комфорта и перестраивать привычный образ жизни: менять распорядок дня, искать время для занятий, быть готовым к возможным неудачам в начале пути. В блоге рассказали, как избежать стресса на курсах профпереподготовки → http://netolo.gy/fPD",
+            video = "https://www.youtube.com/watch?v=WhWc3b3KhnY",
             published = "23 сентября в 10:12",
             likedByMe = false
         ),
