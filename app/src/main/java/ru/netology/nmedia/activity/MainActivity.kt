@@ -20,14 +20,17 @@ class MainActivity : AppCompatActivity() {
 
         val viewModel: PostViewModel by viewModels()
 
+//        2
         val newPostLauncher = registerForActivityResult(NewPostResultContract()) {
             it?.let {
+//                6
                 viewModel.changeContent(it)
                 viewModel.save()
             }
         }
 
         binding.fabAdd.setOnClickListener {
+//            3
             newPostLauncher.launch("")
         }
 
@@ -55,6 +58,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onEdit(post: Post) {
+//                3
                 newPostLauncher.launch(post.content)
                 viewModel.edit(post)
             }

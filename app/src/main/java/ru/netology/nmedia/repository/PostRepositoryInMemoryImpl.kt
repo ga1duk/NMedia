@@ -5,6 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import ru.netology.nmedia.dto.Post
 
 class PostRepositoryInMemoryImpl : PostRepository {
+
+    companion object {
+        private const val author = "Me"
+        private const val published = "now"
+    }
     private var nextId = 1L
     private var posts = listOf(
         Post(
@@ -102,13 +107,12 @@ class PostRepositoryInMemoryImpl : PostRepository {
 
     override fun save(post: Post) {
         if (post.id == 0L) {
-            // TODO: 08.12.2021 remove hardcoded author & published
             posts = listOf(
                 post.copy(
                     id = nextId++,
-                    author = "Me",
+                    author = author,
                     likedByMe = false,
-                    published = "now"
+                    published = published
                 )
             ) + posts
             data.value = posts
