@@ -6,10 +6,8 @@ import ru.netology.nmedia.dto.Post
 
 class PostRepositoryInMemoryImpl : PostRepository {
 
-    companion object {
-        private const val author = "Me"
-        private const val published = "now"
-    }
+    private val author = "Me"
+    private val published = "now"
     private var nextId = 1L
     private var posts = listOf(
         Post(
