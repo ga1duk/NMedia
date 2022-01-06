@@ -47,6 +47,7 @@ dependencies {
     def junittest_version = "4.+"
     def espresso_version = "3.4.0"
     def gson_version = "2.8.9"
+    def nav_version = "2.3.5"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$androidcore_version"
@@ -64,4 +65,7 @@ dependencies {
 
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
     implementation "com.google.code.gson:gson:$gson_version"
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 }
