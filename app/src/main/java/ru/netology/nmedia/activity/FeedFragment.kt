@@ -10,10 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.nmedia.R
+import ru.netology.nmedia.activity.NewPostFragment.Companion.textArg
 import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.FragmentFeedBinding
 import ru.netology.nmedia.dto.Post
+import ru.netology.nmedia.util.StringArg
 import ru.netology.nmedia.viewmodel.PostViewModel
 
 class FeedFragment : Fragment() {
@@ -62,12 +64,27 @@ class FeedFragment : Fragment() {
 
             override fun onEdit(post: Post) {
 //                newPostLauncher.launch(post.content)
+                val text = post.content
+                findNavController().navigate(
+                    R.id.action_feedFragment_to_newPostFragment,
+                    Bundle().apply {
+                        textArg = text
+                    }
+                )
                 viewModel.edit(post)
             }
 
             override fun onVideoPlay(post: Post) {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(post.video))
                 startActivity(intent)
+            }
+
+            override fun onPostSelect(post: Post) {
+                val postId = post.id.toString()
+                findNavController().navigate(R.id.action_feedFragment_to_postFragment,
+                Bundle().apply {
+                    textArg = postId
+                })
             }
         })
 
