@@ -80,6 +80,9 @@ class PostViewHolder(
             postCard.setOnClickListener {
                 onInteractionListener.onPostSelect(post)
             }
+            tvContent.setOnClickListener {
+                onInteractionListener.onPostSelect(post)
+            }
         }
     }
 }

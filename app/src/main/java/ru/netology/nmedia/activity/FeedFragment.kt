@@ -27,16 +27,8 @@ class FeedFragment : Fragment() {
         val binding = FragmentFeedBinding.inflate(inflater, container, false)
         val viewModel: PostViewModel by viewModels(::requireParentFragment)
 
-//        val newPostLauncher = registerForActivityResult(NewPostResultContract()) {
-//            it?.let {
-//                viewModel.changeContent(it)
-//                viewModel.save()
-//            }
-//        }
-
         binding.fabAdd.setOnClickListener {
             findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
-//            newPostLauncher.launch("")
         }
 
         val adapter = PostsAdapter(object : OnInteractionListener {
@@ -63,7 +55,6 @@ class FeedFragment : Fragment() {
             }
 
             override fun onEdit(post: Post) {
-//                newPostLauncher.launch(post.content)
                 val text = post.content
                 findNavController().navigate(
                     R.id.action_feedFragment_to_newPostFragment,
