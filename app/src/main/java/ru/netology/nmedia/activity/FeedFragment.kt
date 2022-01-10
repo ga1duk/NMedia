@@ -15,7 +15,6 @@ import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.FragmentFeedBinding
 import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.util.StringArg
 import ru.netology.nmedia.viewmodel.PostViewModel
 
 class FeedFragment : Fragment() {
@@ -73,9 +72,9 @@ class FeedFragment : Fragment() {
             override fun onPostSelect(post: Post) {
                 val postId = post.id.toString()
                 findNavController().navigate(R.id.action_feedFragment_to_postFragment,
-                Bundle().apply {
-                    textArg = postId
-                })
+                    Bundle().apply {
+                        textArg = postId
+                    })
             }
         })
 

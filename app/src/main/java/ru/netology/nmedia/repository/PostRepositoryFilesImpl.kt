@@ -14,10 +14,10 @@ class PostRepositoryFilesImpl(private val context: Context) : PostRepository {
     private var nextId = 1L
     private val filename = "posts.json"
     private var posts = emptyList<Post>()
-    set(value) {
-        field = value
-        sync()
-    }
+        set(value) {
+            field = value
+            sync()
+        }
 
     private val data = MutableLiveData(posts)
 
