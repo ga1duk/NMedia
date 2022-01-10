@@ -1,2 +1,2 @@
-# Домашнее задание к занятию «3.4 Fragments, FragmentManager»
-## Задача Details
+# Домашнее задание к занятию «4.1 SQL и SQLite»
+## Задача SQL
