@@ -35,6 +35,8 @@ class FCMService : FirebaseMessagingService() {
     override fun onMessageReceived(message: RemoteMessage) {
         if ((Action.valueOf(message.data[action] ?: "")) == Action.LIKE) {
             handleLike(gson.fromJson(message.data[content], Like::class.java))
+        } else if ((Action.valueOf(message.data[action] ?: "")) == Action.NEW_POST) {
+            handleNewPost(gson.fromJson(message.data[content], NewPost::class.java))
         } else {
             println(Gson().toJson(message.data))
         }
@@ -60,10 +62,29 @@ class FCMService : FirebaseMessagingService() {
         NotificationManagerCompat.from(this)
             .notify(Random.nextInt(100_000), notification)
     }
+
+    private fun handleNewPost(content: NewPost) {
+        val notification = NotificationCompat.Builder(this, channelId)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle(
+                getString(
+                    R.string.notification_new_post,
+                    content.postAuthor
+                )
+            )
+            .setContentText(content.postContent)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(content.postContent))
+            .build()
+
+        NotificationManagerCompat.from(this)
+            .notify(Random.nextInt(100_000), notification)
+    }
 }
 
 enum class Action {
-    LIKE
+    LIKE,
+    NEW_POST
 }
 
 data class Like(
@@ -71,5 +92,10 @@ data class Like(
     val userName: String,
     val postId: Long,
     val postAuthor: String,
+)
+
+data class NewPost(
+    val postAuthor: String,
+    val postContent: String
 )
 
