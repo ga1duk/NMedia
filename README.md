@@ -1,2 +1,2 @@
 # Домашнее задание к занятию «4.3 Notifications & Pushes»
-## Задача Exceptions
+## Задача New Post
