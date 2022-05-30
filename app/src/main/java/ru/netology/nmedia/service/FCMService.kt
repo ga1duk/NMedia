@@ -33,10 +33,10 @@ class FCMService : FirebaseMessagingService() {
     }
 
     override fun onMessageReceived(message: RemoteMessage) {
-        message.data[action]?.let {
-           when (Action.valueOf(it)) {
-              Action.LIKE -> handleLike(gson.fromJson(message.data[content], Like::class.java))
-           }
+        if ((Action.valueOf(message.data[action] ?: "")) == Action.LIKE) {
+            handleLike(gson.fromJson(message.data[content], Like::class.java))
+        } else {
+            println(Gson().toJson(message.data))
         }
     }
 
@@ -63,7 +63,7 @@ class FCMService : FirebaseMessagingService() {
 }
 
 enum class Action {
-    LIKE,
+    LIKE
 }
 
 data class Like(
