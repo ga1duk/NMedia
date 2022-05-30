@@ -16,4 +16,8 @@
     <string name="chooser_share_post">Поделиться постом</string>
     <string name="description_post_add">Добавить пост</string>
     <string name="description_post_video_play">Воспроизвести видео</string>
+    <string name="channel_remote_name">Уведомления с сервера</string>
+    <string name="channel_remote_description">Уведомления с удалённого сервера</string>
+    <string name="notification_user_liked">%1$s поставил лайк посту %2$s</string>
+    <string name="google_play_unavailable">Google Api Недоступно</string>
 </resources>
